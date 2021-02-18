@@ -112,7 +112,7 @@
   font-size: 1.3em;
 }
 /* button & font chu cac doan */
-#get-app {
+.get-app {
   background-color: #fdeb7b;
   border: none;
   padding: 10px 10px 10px 10px;
@@ -124,7 +124,7 @@
   -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.81);
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.81);
 }
-#get-app:hover {
+.get-app:hover {
   background-color: white;
 }
 .get-app {
