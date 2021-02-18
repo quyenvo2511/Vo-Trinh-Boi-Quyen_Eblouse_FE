@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import clinicsActions from "../redux/actions/clinics.actions";
 import LoadingSpinner from "../components/LoadingSpinner";
+import { toast } from "react-toastify";
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
@@ -19,6 +20,7 @@ import ClinicShowcase from "../components/clinicDetail/ClinicShowcase";
 import ClinicInfo from "../components/clinicDetail/ClinicInfo";
 
 import "../style/ClinicDetailPage.css";
+import { toast } from "react-toastify";
 
 const ClinicDetailPage = () => {
   const dispatch = useDispatch();
@@ -50,6 +52,7 @@ const ClinicDetailPage = () => {
     dispatch(
       clinicsActions.createNewReview(clinicId, user._id, reviewText, rating)
     );
+    toast.success("Your Review was created!");
     setReviewText("");
     setRating(null);
   };
