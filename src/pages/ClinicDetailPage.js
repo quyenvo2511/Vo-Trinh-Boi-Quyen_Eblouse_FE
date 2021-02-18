@@ -11,7 +11,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import clinicsActions from "../redux/actions/clinics.actions";
 import LoadingSpinner from "../components/LoadingSpinner";
-import { toast } from "react-toastify";
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
