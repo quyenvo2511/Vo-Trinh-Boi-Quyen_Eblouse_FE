@@ -15,7 +15,6 @@ const getClinic = (clinicId) => async (dispatch) => {
   try {
     const response = await api.get(`/clinic/${clinicId}`);
     const clinic = response.data.data;
-    console.log(clinic);
     dispatch({ type: types.GET_CLINIC_SUCCESS, payload: clinic });
   } catch (error) {
     dispatch({ type: types.GET_CLINIC_FAILURE, payload: null });
@@ -74,10 +73,8 @@ const createNewReview = (clinicId, userId, reviewText, rating) => async (
       content: reviewText,
       rating: rating,
     });
-    console.log("chek review", res.data.data);
     dispatch({ type: types.CREATE_REVIEW_SUCCESS, payload: res.data.data });
   } catch (error) {
-    console.log(error);
     dispatch({ type: types.CREATE_REVIEW_FAILURE, payload: error });
   }
 };

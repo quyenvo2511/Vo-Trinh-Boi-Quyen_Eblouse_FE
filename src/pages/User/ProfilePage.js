@@ -30,7 +30,6 @@ const ProfilePage = () => {
 
   const handleSubmitMedical = (e) => {
     e.preventDefault();
-    console.log("check handlesubitmedical");
     dispatch(
       usersAction.userInforUpdate(
         user._id,
