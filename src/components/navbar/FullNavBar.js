@@ -10,6 +10,7 @@ import { Nav } from "react-bootstrap";
 import UserInfoButton from "./UserInfoButton";
 import ReviewsSearchBar from "./ReviewsSearchBar";
 import BookingSearchBar from "./BookingSearchBar";
+import { useHistory } from "react-router-dom";
 
 /**
  * The Nav Bar with full functionalities (search Clinic)
@@ -43,11 +44,16 @@ const FullNavBar = ({
   const REVIEWS_SEARCH_MODE = 2;
   const [searchMode, setSearchMode] = useState(BOOKING_SEARCH_MODE);
 
+  const history = useHistory();
+  const handleLogo = () => {
+    history.push("/");
+  };
+
   return (
     <>
       {/* Left side of Nav bar*/}
       <div className="nav-bar">
-        <div id="logo">
+        <div id="logo" onClick={handleLogo}>
           <img src={logo} alt="Eblouse" width="150px" />
         </div>
         {/* Center of Nav bar*/}

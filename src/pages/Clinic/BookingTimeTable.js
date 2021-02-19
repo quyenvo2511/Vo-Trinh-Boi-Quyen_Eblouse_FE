@@ -1,6 +1,6 @@
 /**
  * Author: Quyen Vo
- * File name: bookingsActions.js
+ * File name: bookingTimeTable.js
  * Last Modified Date: 15/2/2021
  */
 import React from "react";
@@ -13,24 +13,36 @@ const BookingTimeTable = ({
   startTime,
 }) => {
   // activeBookings is an array, it contains 2 status of bookings (pending, accepted)
-  // with two status above, users can book that bookings
+  // with two status above, users can not book that bookings
   const activeBookings = bookingsList.filter(
     (booking) => booking.status === "Pending" || booking.status === "Accepted"
   );
+  // after filter bookings with 2 status
+  // We will filter in  that bookings which are in same day
 
   const bookingsByDate = activeBookings.filter((booking) => {
     const startDate = booking.startTime.split("T")[0];
     return startDate === date.toISOString().split("T")[0];
-  });
+  }); // [{_id: , status: "pending", date: "2021/2/17", doctor: "A"}
+  //,{_id: , status: "accepted", date: "2021/2/17", doctor: "B"}...]
 
+  // after filter by date then filter by doctor
+  // now we filter all bookings belongs to 1 doctor
   const bookingsByDoctor = bookingsByDate.filter(
     (booking) => booking.doctor._id === doctorId
-  );
+  ); // [{_id: , status: "pending", date: "2021/2/17", doctor: "A"},
+  // {_id: , status: "accepted", date: "2021/2/17", doctor: "A"}...]
 
   const occupiedTimeSlot = bookingsByDoctor.map((booking) => {
     return new Date(booking.startTime).getHours();
-  });
+  }); // return occupiedTimeSlot = [8, 14,...]
 
+  /**
+   * This component to check if the input if user is the same to
+   * one of occiedTimeSLot in array then return true to disable the button
+   *
+   * @param {Number} time The input timing button
+   */
   const checkedOccupiedTimeSlot = (time) => {
     for (let i = 0; i < occupiedTimeSlot.length; i++) {
       if (occupiedTimeSlot[i] === time) return true;
@@ -44,7 +56,7 @@ const BookingTimeTable = ({
       <button
         className={
           checkedOccupiedTimeSlot(8)
-            ? "disabled"
+            ? "disabled" // if true, the UI now of this button is disabled
             : startTime === 8
             ? "selected"
             : "booking-time-input"
