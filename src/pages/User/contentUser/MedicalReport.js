@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
 import SaveIcon from "@material-ui/icons/Save";
-import { Table } from "react-bootstrap";
-import clinicsReducer from "../../../redux/reducers/clinics.reducers";
-import bookingsActions from "../../../redux/actions/bookings.actions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -65,37 +62,8 @@ const blood = [
   },
 ];
 
-const BookingListTable = ({ booking }) => {
-  return (
-    <>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Booking ID</th>
-            <th>Clinic Name</th>
-            <th>Specialization</th>
-            <th>Booking date</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-
-            <td>{booking.clinic._id}</td>
-
-            <td>{booking.clinic.name}</td>
-            <td>@mdo</td>
-            <td>pending</td>
-          </tr>
-        </tbody>
-      </Table>
-    </>
-  );
-};
 const MedicalReport = ({
   bookings,
-
   name,
   setName,
   gender,
@@ -108,12 +76,10 @@ const MedicalReport = ({
 }) => {
   const classes = useStyles();
 
-  const [genderLocal, setGenderLocal] = useState("blood");
-
   const handleChangeGender = (e) => {
     setGender(e.target.value);
   };
-  const handleNameChange = (e, newName) => {
+  const handleNameChange = (e) => {
     setName(e.target.value);
   };
   const handleJobChange = (e) => {
@@ -124,7 +90,7 @@ const MedicalReport = ({
   };
 
   return (
-    <>
+    <div style={{ marginLeft: "10vw" }}>
       <form
         className={classes.root}
         noValidate
@@ -193,15 +159,13 @@ const MedicalReport = ({
             type="submit"
             className={classes.button}
             startIcon={<SaveIcon />}
+            style={{ marginBottom: "10px" }}
           >
             Save
           </Button>
         </div>
       </form>{" "}
-      {bookings.map((booking) => (
-        <BookingListTable booking={booking} key={booking._id} />
-      ))}
-    </>
+    </div>
   );
 };
 

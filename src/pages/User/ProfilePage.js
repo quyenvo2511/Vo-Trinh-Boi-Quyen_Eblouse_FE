@@ -1,3 +1,9 @@
+/**
+ * Author: Quyen Vo
+ * File name: ProfilePage.js
+ * Last Modified Date: 20/1/2021
+ * Purpose: This component is using for change information of user
+ */
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import BookingUser from "./contentUser/BookingUser";
@@ -7,6 +13,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import usersAction from "../../redux/actions/users.actions";
 import bookingsActions from "../../redux/actions/bookings.actions";
 import LoadingSpinner from "../../components/LoadingSpinner";
+
+import "../../style/UserProfilePage.css";
 
 export const SHOW_BOOKING_USER = 1;
 export const SHOW_MEDICAL_REPORT = 2;
@@ -18,10 +26,12 @@ const ProfilePage = () => {
   const [blood, setBlood] = useState("");
   const [job, setJob] = useState("");
   const [passportNum, setPassportNum] = useState("");
+
   const bookings = useSelector((state) => state.bookings.bookings);
   const isLoading = useSelector((state) => state.bookings.isLoading);
   const user = useSelector((state) => state.auth.user);
   const listClinic = useSelector((state) => state.clinics.listClinic);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -43,17 +53,18 @@ const ProfilePage = () => {
   };
 
   return (
-    <Container fluid>
+    <Container fluid className="user-profile-page-layout">
       {isLoading ? (
         <LoadingSpinner animation="border" color="danger" />
       ) : (
         <Row>
-          <Col md={3}>
+          <Col md={1}></Col>
+          <Col md={2}>
             <div className="user-page-wrapper">
               <UserMenu showMode={showMode} setShowMode={setShowMode} />
             </div>
           </Col>
-          <Col md={9}>
+          <Col md={8}>
             <div className="content-wrapper">
               {showMode === SHOW_BOOKING_USER ? (
                 <BookingUser bookings={bookings} user={user} />
@@ -76,6 +87,7 @@ const ProfilePage = () => {
               )}
             </div>
           </Col>
+          <Col md={1}></Col>
         </Row>
       )}
     </Container>
