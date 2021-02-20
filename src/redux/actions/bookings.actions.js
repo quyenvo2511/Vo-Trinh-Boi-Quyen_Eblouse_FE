@@ -83,7 +83,7 @@ const createBookingRequest = (bookingInfo, accessToken) => async (dispatch) => {
     toast.success("Appointment created for you!");
   } catch (error) {
     dispatch({ type: types.CREATE_BOOKING_FAILURE, payload: null });
-    toast.error("Failed to create appointment");
+    toast.error("You need to Log in first!");
   }
 };
 

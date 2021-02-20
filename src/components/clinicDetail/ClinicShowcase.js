@@ -30,7 +30,7 @@ const ClinicShowcase = ({ clinic }) => {
         <div className="rating-specialization">
           <p className="rating">
             <i style={{ color: "#fdb827" }} className="fas fa-star"></i>
-            {`   ${avgRating} (${reviews.length})`}
+            {`   ${Math.round(avgRating * 10) / 10} (${reviews.length})`}
           </p>
           <ul className="specialization">
             {specializations.map((spec, index) => (

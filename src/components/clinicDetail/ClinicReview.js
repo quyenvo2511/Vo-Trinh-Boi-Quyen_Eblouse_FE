@@ -85,6 +85,10 @@ const ClinicReview = ({
           </div>
         </div>
         <div className="review-content">
+          <p style={{ padding: "10px 0px" }}>
+            <i style={{ color: "#fdb827" }} className="fas fa-star"></i>
+            {" " + review.rating}
+          </p>
           <p
             style={{
               fontSize: "0.9em",

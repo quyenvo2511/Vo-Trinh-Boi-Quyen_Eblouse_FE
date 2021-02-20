@@ -53,7 +53,6 @@ const getAllClinic = () => async (dispatch) => {
     });
   } catch (error) {
     dispatch({ type: types.GET_ALL_CLINICS_FAILURE, payload: null });
-    toast.error(error);
   }
 };
 /**
@@ -74,8 +73,10 @@ const createNewReview = (clinicId, userId, reviewText, rating) => async (
       rating: rating,
     });
     dispatch({ type: types.CREATE_REVIEW_SUCCESS, payload: res.data.data });
+    toast.success("Your review was created!");
   } catch (error) {
     dispatch({ type: types.CREATE_REVIEW_FAILURE, payload: error });
+    toast.error("Cannot create your review!");
   }
 };
 const clinicsActions = {

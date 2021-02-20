@@ -134,11 +134,11 @@ const BookingTrendMonth = () => {
 
       // The actual scale
       const yScale = d3
-        .scaleLinear()
+        .scaleLinear() // y axis
         .domain([0, maxY])
         .range([CANVAS_HEIGHT - PADDING, 0]);
       const xScale = d3
-        .scaleTime()
+        .scaleTime() // x axis
         .domain([minX, maxX])
         .range([PADDING, CANVAS_WIDTH - PADDING]);
 

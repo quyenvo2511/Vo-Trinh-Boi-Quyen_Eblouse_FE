@@ -51,7 +51,6 @@ const ClinicDetailPage = () => {
     dispatch(
       clinicsActions.createNewReview(clinicId, user._id, reviewText, rating)
     );
-    toast.success("Your Review was created!");
     setReviewText("");
     setRating(null);
   };

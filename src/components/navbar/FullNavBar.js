@@ -53,8 +53,8 @@ const FullNavBar = ({
     <>
       {/* Left side of Nav bar*/}
       <div className="nav-bar">
-        <div id="logo" onClick={handleLogo}>
-          <img src={logo} alt="Eblouse" width="150px" />
+        <div id="logo">
+          <img src={logo} alt="Eblouse" width="150px" onClick={handleLogo} />
         </div>
         {/* Center of Nav bar*/}
         <div className="nav-middle">
