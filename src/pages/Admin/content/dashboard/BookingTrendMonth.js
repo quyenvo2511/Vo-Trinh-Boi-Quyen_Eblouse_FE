@@ -232,7 +232,7 @@ const BookingTrendMonth = () => {
             className="percent-growth"
             style={{ color: growth[1] > 0 ? "#61b15a" : "##ef4f4f" }}
           >
-            {`${growth[1] * 100}`}%{" "}
+            {`${Math.round(growth[1] * 100)}`}%{" "}
             {growth[1] > 0 ? (
               <i class="fas fa-arrow-up"></i>
             ) : (
