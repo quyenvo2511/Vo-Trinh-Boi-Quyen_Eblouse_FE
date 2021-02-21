@@ -16,7 +16,7 @@ function App() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken");
+    const accessToken = sessionStorage.getItem("accessToken");
     if (accessToken && accessToken !== "undefined") {
       dispatch(authActions.getCurrentUser(accessToken));
     } else {

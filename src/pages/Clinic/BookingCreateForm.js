@@ -86,7 +86,7 @@ const BookingCreateForm = ({ doctors, clinicId }) => {
       bookingInfo.endTime = endTime;
       bookingInfo.reason = visitReason;
 
-      const accessToken = localStorage.getItem("accessToken");
+      const accessToken = sessionStorage.getItem("accessToken");
       dispatch(bookingsActions.createBookingRequest(bookingInfo, accessToken));
       setStartTime(0);
     }

@@ -19,7 +19,6 @@ import ClinicShowcase from "../components/clinicDetail/ClinicShowcase";
 import ClinicInfo from "../components/clinicDetail/ClinicInfo";
 
 import "../style/ClinicDetailPage.css";
-import { toast } from "react-toastify";
 
 const ClinicDetailPage = () => {
   const dispatch = useDispatch();
