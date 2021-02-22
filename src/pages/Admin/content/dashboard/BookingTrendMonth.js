@@ -65,7 +65,9 @@ const calculateGrowthVersusLastMonth = (bookings) => {
   // This function gets all the bookings of the given month
   const filterByMonth = (bookings, month) => {
     return bookings.filter(
-      (booking) => new Date(booking.startTime).getMonth() === month
+      (booking) =>
+        new Date(booking.startTime).getMonth() === month &&
+        booking.status !== "Cancelled"
     );
   };
 
