@@ -15,6 +15,7 @@ import bookingsActions from "../../redux/actions/bookings.actions";
 import LoadingSpinner from "../../components/LoadingSpinner";
 
 import "../../style/UserProfilePage.css";
+import { toast } from "react-toastify";
 
 export const SHOW_BOOKING_USER = 1;
 export const SHOW_MEDICAL_REPORT = 2;
@@ -50,6 +51,7 @@ const ProfilePage = () => {
         job
       )
     );
+    toast.success("Your Profile was updated!");
   };
 
   return (

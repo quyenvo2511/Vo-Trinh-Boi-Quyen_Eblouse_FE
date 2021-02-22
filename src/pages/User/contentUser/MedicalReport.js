@@ -63,7 +63,6 @@ const blood = [
 ];
 
 const MedicalReport = ({
-  bookings,
   name,
   setName,
   gender,
@@ -164,7 +163,7 @@ const MedicalReport = ({
             Save
           </Button>
         </div>
-      </form>{" "}
+      </form>
     </div>
   );
 };

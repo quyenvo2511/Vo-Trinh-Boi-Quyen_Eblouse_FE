@@ -44,6 +44,7 @@ const userInforUpdate = (
   passportNum,
   job
 ) => async (dispatch) => {
+  console.log("check user id va name", userId, name);
   dispatch({ type: types.EDIT_PROFILE_REQUEST, payload: null });
   try {
     const res = await api.put(`users/information/${userId}`, {
