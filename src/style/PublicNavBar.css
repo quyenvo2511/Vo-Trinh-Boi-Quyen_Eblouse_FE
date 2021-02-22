@@ -70,7 +70,7 @@
   border-radius: 50%;
 }
 
-.nav-links .user-action-menu {
+.nav-links .user-action-men u {
   z-index: 10;
   background-color: white;
   position: absolute;
@@ -281,10 +281,12 @@
   #logo {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
+    cursor: pointer;
   }
 
   #logo img {
     width: 150px;
+    cursor: pointer;
   }
 
   .nav-middle {

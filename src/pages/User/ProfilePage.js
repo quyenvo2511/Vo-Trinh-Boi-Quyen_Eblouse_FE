@@ -51,7 +51,7 @@ const ProfilePage = () => {
         job
       )
     );
-    toast.success("Your Profile was updated!");
+    // toast.success("Your Profile was updated!");
   };
 
   return (
